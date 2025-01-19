@@ -4,11 +4,13 @@ import { importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { appRoutes } from './app.routes';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes),
-    importProvidersFrom(BrowserModule),
+    importProvidersFrom(BrowserModule), 
+    provideHttpClient(withFetch())
   ],
 };
 
